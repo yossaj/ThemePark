@@ -8,11 +8,13 @@ import static org.junit.Assert.assertEquals;
 public class RollercoasterTest {
 
     Visitor visitor;
+    Visitor visitor2;
     Rollercoaster rollercoaster;
 
     @Before
     public void before(){
         visitor = new Visitor(170, 23, 300);
+        visitor2 = new Visitor(140, 9, 0);
         rollercoaster = new Rollercoaster("Pepsi-Max", 30);
     }
 
@@ -32,4 +34,17 @@ public class RollercoasterTest {
         assertEquals(1, rollercoaster.countPassengers());
     }
 
-}
+    @Test
+    public void cantBoardShortPassenger(){
+        rollercoaster.boardVisitor(visitor2);
+        assertEquals(0, rollercoaster.countPassengers());
+    }
+
+    @Test
+    public void canAddNotSoShortPassengers(){
+        rollercoaster.boardVisitor(visitor);
+        assertEquals(1, rollercoaster.countPassengers());
+
+    }
+
+};

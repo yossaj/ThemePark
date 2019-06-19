@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class HotDogStallTest {
 
@@ -31,6 +32,20 @@ public class HotDogStallTest {
         hotDogStall.assignNewParkingSpot(1);
         assertEquals(1, hotDogStall.getParkingSpot(), 0);
     }
+
+    @Test
+    public void canAddHotDogs(){
+        hotDogStall.topUpDogs();
+        assertEquals(6, hotDogStall.countStock());
+    }
+
+    @Test
+    public void   canSellHotDogs(){
+        hotDogStall.topUpDogs();
+        hotDogStall.sellDogs(visitor);
+        assertEquals(5, hotDogStall.countStock());
+    }
+
 
 
 }

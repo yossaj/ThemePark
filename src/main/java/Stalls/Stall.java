@@ -1,5 +1,7 @@
 package Stalls;
 
+import Attractions.Visitor;
+
 public abstract class Stall {
 
     protected String name;
@@ -10,6 +12,7 @@ public abstract class Stall {
         this.name = name;
         this.ownersName = ownersName;
         this.parkingSpot = parkingSpot;
+
     }
 
     public String getName(){
